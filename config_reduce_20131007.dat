@@ -1,0 +1,59 @@
+! Usage
+! Just modify this file and run ./a.out again.
+! The default name of this file is config.dat.
+! You can use another name, e.g., XXX.dat, then
+! run the program like this: ./a.out XXX.dat
+!
+&PhysicalParameters
+!Av = 3.0D0 ! NHtotal / 1.6D21; obsolete: changed into AV_s now
+omega_Albedo = 0.5D0
+rateCosIon = 3.0D-17
+rateHHH2 = 3.003953e-18 !3.002221e-18 !
+!stickCoeffHH = 1D0
+!stickCoeffChargeGrain = 0.8D0 !0.5D0
+ratioDustGasMass = 1.3D-2
+!ratioHDust = 2.857143E11 ! 1D0/3.5D-12
+GrainDensity = 2.0D0 ! g/cm^3
+GrainRadius = 1.0D-1 ! micron !for gas-to-dust ratio, coulomb correction, rate correction
+GrainRadiusBase = 0.02 !0.0202 ! micron ! for rate correction
+aGrainMin = 1.0D-5 ! 1D-6 !cm ! only used for calculating the H+H->H2 rate
+aGrainMax = 1.0D-5 ! 3D-5 !cm ! only used for calculating the H+H->H2 rate
+timeUnit = 1.0D2 ! in years
+nSpecies_Est = 1024
+rateThreshold = 0D0
+/
+&ODEParameters
+nIteration = 650
+RTOL = 1.0D-6 ! relative tolerance
+ATOL = 1.0D-30 ! absolute tolerance
+/
+&Paths
+path = "./"
+!fReactions = "rate06_dipole_reformated_again.dat"
+fReactions = "rate12_umist_reformatted.dat"
+fInitialCondition = "initial_condition_low_metal.dat"
+fSaveFinalResult = "final_abundance_20131007.txt"
+/
+&ReduceParameters
+nPhyPar = 21
+Temperature_s =  100  200  300  400  500  600  800  900  1000  1000 1000  2000 3000   50  1E4   20  30   40   5000 1E4  2E4   400  500  600  800  900  1000  1000 2000 3000 5000 1E4
+n_H_s =          1E9  1E8  1E7  1E7  1E7  1E7  1E7  1E6  1E5   1E5  1E5   1E5  1E5  1E10  1E4 1E13 1E12 1E11  1E4  1E4  1E4   1E7  1E7  1E7  1E7  1E6  1E5   1E5  1E5  1E5  1E4  1E4
+Av_s =           1E3  1E3  1E2  1E1  1E1  1E1  5.0  5.0  3.0   1.0  0.5   0.1  0.1   1E3  0.0 1E4  1E4  1E4   0.1  0.1  0.0   1E1  1E1  1E1  5.0  5.0  3.0   1.0  0.1  0.1  0.1  0.0
+file_imp_species_in = "species_we_care_about.dat"
+file_imp_reacs_out = "rate06_dipole_reduced_20131007.dat"
+n_time_care = 12
+time_care = 1E-5  1E-3  1E-2  1E-1  1E0  1E1  1E2  1E3  1E4  1E5  1E6  1E7
+allow_dead_end = .FALSE.
+ratio_tobe_imp = 0.9999999  0.9999995  0.999995  0.99999  0.99995  0.9999  0.999  0.995  0.99  0.9  0.9  0.9  0.5  0.5  0.5  0.5  0.5  0.5  0.5   0.3  0.1
+use_acum_threshold = .TRUE.
+tScaleMax = 1.0E20
+nHeavyEleMax = 12
+nMaxD = 12
+nMaxC = 9
+abundMaxHeavy = 1E-200
+abundMaxSecondary = 1E-200
+abundMaxC = 1D-200
+prio_reac_threshold = 1E-4
+prio_spe_threshold = 1E-4
+fLog = "Log.dat"
+/
