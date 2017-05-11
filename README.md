@@ -53,11 +53,11 @@ tScaleMax = 1.0E15
 nHeavyEleMax = 5  ! Max number of heavy elements in species to be kept
 nMaxD = 4  ! Max number of deuterium atoms in species to be kept
 nMaxC = 5  ! ... of carbon
-abundMaxHeavy = 1E-50
-abundMaxSecondary = 1E-50
+abundMaxHeavy = 1E-50  ! A species will not be removed unless its abundance is lower than this.
+abundMaxSecondary = 1E-50  ! For similar purpose
 abundMaxC = 1D-50
-prio_reac_threshold = 0.001
-prio_spe_threshold = 0.001
+prio_reac_threshold = 0.001  ! Reactions with relative importance higher than this will not be removed.
+prio_spe_threshold = 0.001  ! Similar
 fLog = "Log.dat"
 /
 ```
