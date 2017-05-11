@@ -1,8 +1,8 @@
 ! Usage
-! Just modify this file and run ./a.out again.
+! Just modify this file and run ./reduce again.
 ! The default name of this file is config.dat.
 ! You can use another name, e.g., XXX.dat, then
-! run the program like this: ./a.out XXX.dat
+! run the program like this: ./reduce XXX.dat
 !
 &PhysicalParameters
 !Av = 3.0D0 ! NHtotal / 1.6D21; obsolete: changed into AV_s now
@@ -31,13 +31,13 @@ ATOL = 1.0D-30 ! absolute tolerance
 path = "./"
 fReactions = "rate06_dipole_reformated_again.dat"
 fInitialCondition = "initial_condition_low_metal.dat"
-fSaveFinalResult = "final_abundance_20130528.txt"
+fSaveFinalResult = "final_abundance_20170511.txt"
 /
 &ReduceParameters
-nPhyPar = 1
-Temperature_s = 1D4
-n_H_s =         1D12
-Av_s =          0D0
+nPhyPar = 3
+Temperature_s = 10.0  30.0  100.0
+n_H_s =         1D12  1D9   1D7
+Av_s =          20.0  10D0  5.0
 file_imp_species_in = "species_we_care_about.dat"
 file_imp_reacs_out = "rate06_dipole_reduced_20140223.dat"
 n_time_care = 10
@@ -54,5 +54,5 @@ abundMaxSecondary = 1E-50
 abundMaxC = 1D-50
 prio_reac_threshold = 0.001
 prio_spe_threshold = 0.001
-fLog = "Log.dat"
+fLog = "log_20170511.dat"
 /

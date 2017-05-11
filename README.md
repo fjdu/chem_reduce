@@ -3,10 +3,10 @@
 ```fortran
 ! Filename: configure.dat
 ! Usage
-! Just modify this file and run ./a.out again.
+! Just modify this file and run ./reduce.
 ! The default name of this file is config.dat.
 ! You can use another name, e.g., XXX.dat, then
-! run the program like this: ./a.out XXX.dat
+! run the program like this: ./reduce XXX.dat
 !
 &PhysicalParameters
 !Av = 3.0D0 ! NHtotal / 1.6D21; obsolete: changed into AV_s now
@@ -38,10 +38,10 @@ fInitialCondition = "initial_condition_low_metal.dat" ! Initial condition
 fSaveFinalResult = "final_abundance_20130528.txt"  ! Save final abundances into this file
 /
 &ReduceParameters
-nPhyPar = 1
-Temperature_s = 1D4
-n_H_s =         1D12
-Av_s =          0D0
+nPhyPar = 3
+Temperature_s = 10.0   30.0  1D2
+n_H_s =         1D11   1D9   1D8
+Av_s =          20.0   5D0   1D0
 file_imp_species_in = "species_we_care_about.dat"
 file_imp_reacs_out = "rate06_dipole_reduced_20140223.dat"
 n_time_care = 10
