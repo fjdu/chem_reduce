@@ -1,12 +1,24 @@
+# How to use
+
+`git clone https://github.com/fjdu/chem_reduce.git`
+
+`cd chem_reduce`
+
+`make`
+
+`./reduce config_reduce_20140223.dat`
+
+Edit the `ReduceParameters` section of the configuration file as needed.  You can also change other parameters.
+
 # Example config file
 
 ```fortran
 ! Filename: configure.dat
 ! Usage
-! Just modify this file and run ./reduce.
-! The default name of this file is config.dat.
-! You can use another name, e.g., XXX.dat, then
-! run the program like this: ./reduce XXX.dat
+!   Just modify this file and run ./reduce.
+!   The default name of this file is config.dat.
+!   You can use another name, e.g., XXX.dat, then
+!   run the program like this: ./reduce XXX.dat
 !
 &PhysicalParameters
 !Av = 3.0D0 ! NHtotal / 1.6D21; obsolete: changed into AV_s now
@@ -38,7 +50,7 @@ fInitialCondition = "initial_condition_low_metal.dat" ! Initial condition
 fSaveFinalResult = "final_abundance_20130528.txt"  ! Save final abundances into this file
 /
 &ReduceParameters
-nPhyPar = 3
+nPhyPar = 3  ! Number of the groups of physical parameters
 Temperature_s = 10.0   30.0  1D2
 n_H_s =         1D11   1D9   1D8
 Av_s =          20.0   5D0   1D0
