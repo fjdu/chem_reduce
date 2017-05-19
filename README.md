@@ -51,18 +51,28 @@ fSaveFinalResult = "final_abundance_20130528.txt"  ! Save final abundances into 
 /
 &ReduceParameters
 nPhyPar = 3  ! Number of the groups of physical parameters
+! The following means we care about three different physical conditions:
+! 1. T = 10  K, n = 1D11 cm-3, Av = 20
+! 2. T = 30  K, n = 1D9  cm-3, Av =  5
+! 3. T = 100 K, n = 1D2  cm-3, Av =  1
 Temperature_s = 10.0   30.0  1D2
 n_H_s =         1D11   1D9   1D8
 Av_s =          20.0   5D0   1D0
 file_imp_species_in = "species_we_care_about.dat"
 file_imp_reacs_out = "rate06_dipole_reduced_20140223.dat"
+! The time steps we care about
 n_time_care = 10
 time_care = 1E-3  1E-2  1E-1  1E0  1E1  1E2  1E3  1E4  1E5  1E6  ! The time intervals we care about
 allow_dead_end = .FALSE.
+! The code recursively finds out the important reactions and species at each
+! time step we care about.  The ratio_tobe_imp parameter specifies the threshold for
+! a reaction to be considered important at each recursion.
+! The actual ratio_tobe_imp array will be longer than this; the remaining
+! elements are padded with the minval of those specified below.
 ratio_tobe_imp = 0.99  0.95  0.95  0.9  0.9  0.5  0.5  0.3  0.1
 use_acum_threshold = .TRUE.
 tScaleMax = 1.0E15
-nHeavyEleMax = 5  ! Max number of heavy elements in species to be kept
+nHeavyEleMax = 5  ! Max number of elements beyond He in species to be kept
 nMaxD = 4  ! Max number of deuterium atoms in species to be kept
 nMaxC = 5  ! ... of carbon
 abundMaxHeavy = 1E-50  ! A species will not be removed unless its abundance is lower than this.
