@@ -69,8 +69,12 @@ allow_dead_end = .FALSE.
 ! a reaction to be considered important at each recursion.
 ! The actual ratio_tobe_imp array will be longer than this; the remaining
 ! elements are padded with the minval of those specified below.
+! The use_acum_threshold = .TRUE. means the thresholds are based on accumulated contribution of the
+! reactions, hence 0.95 means the reactions that collectively contribute to 95% of the reaction rates
+! are kept.
 ratio_tobe_imp = 0.99  0.95  0.95  0.9  0.9  0.5  0.5  0.3  0.1
 use_acum_threshold = .TRUE.
+! A reaction with time scale longer than tScaleMax will be discarded.
 tScaleMax = 1.0E15
 nHeavyEleMax = 5  ! Max number of elements beyond He in species to be kept
 nMaxD = 4  ! Max number of deuterium atoms in species to be kept
