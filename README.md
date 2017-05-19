@@ -82,8 +82,8 @@ nMaxC = 5  ! ... of carbon
 abundMaxHeavy = 1E-50  ! A species will not be removed unless its abundance is lower than this.
 abundMaxSecondary = 1E-50  ! For similar purpose
 abundMaxC = 1D-50
-prio_reac_threshold = 0.001  ! Reactions with relative importance higher than
-! this will not be removed.  The importance for a reaction is different for
+prio_reac_threshold = 0.001  ! Reactions with relative importance lower than
+! this will be removed.  The importance of a reaction is different for
 ! different species; it is simply the rate of that reaction devided by the total
 ! rate of the production or destruction of a species (at a given time).
 prio_spe_threshold = 0.001  ! Similar
