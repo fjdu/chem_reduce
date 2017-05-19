@@ -69,9 +69,9 @@ allow_dead_end = .FALSE.
 ! a reaction to be considered important at each recursion.
 ! The actual ratio_tobe_imp array will be longer than this; the remaining
 ! elements are padded with the minval of those specified below.
-! The use_acum_threshold = .TRUE. means the thresholds are based on accumulated contribution of the
-! reactions, hence 0.95 means the reactions that collectively contribute to 95% of the reaction rates
-! are kept.
+! The use_acum_threshold = .TRUE. means the thresholds are based on accumulated
+! contribution of the reactions, hence 0.95 means the reactions that collectively
+! contribute to 95% of the reaction rates are kept.
 ratio_tobe_imp = 0.99  0.95  0.95  0.9  0.9  0.5  0.5  0.3  0.1
 use_acum_threshold = .TRUE.
 ! A reaction with time scale longer than tScaleMax will be discarded.
@@ -82,7 +82,10 @@ nMaxC = 5  ! ... of carbon
 abundMaxHeavy = 1E-50  ! A species will not be removed unless its abundance is lower than this.
 abundMaxSecondary = 1E-50  ! For similar purpose
 abundMaxC = 1D-50
-prio_reac_threshold = 0.001  ! Reactions with relative importance higher than this will not be removed.
+prio_reac_threshold = 0.001  ! Reactions with relative importance higher than
+! this will not be removed.  The importance for a reaction is different for
+! different species; it is simply the rate of that reaction devided by the total
+! rate of the production or destruction of a species (at a given time).
 prio_spe_threshold = 0.001  ! Similar
 fLog = "Log.dat"
 /
